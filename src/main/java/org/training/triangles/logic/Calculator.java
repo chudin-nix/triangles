@@ -1,43 +1,38 @@
 package org.training.triangles.logic;
 
+import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
 public class Calculator {
 
-    public boolean isTriangle () {
+    public boolean isTriangle (Triangle triangle) {
         return true;
     }
 
     public double calculateArea (Triangle triangle) {
-        double square = 1/2  * calculateDistanceBetweenFirstPointAndSecondPoint(Triangle triangle) * calculateDistanceBetweenSecondPointAndThirdPoint(Triangle triangle) * Math.sin(y);
+        Point firstPoint = triangle.getFirstPoint();
+        Point secondPoint = triangle.getSecondPoint();
+        Point thirdPoint = triangle.getThirdPoint();
+        double square = 1/2  * calculateDistanceBetweenPoints(firstPoint, secondPoint) * calculateDistanceBetweenPoints(secondPoint, thirdPoint) * Math.sin(y);
+        return square;
+    }
+
+    public double calculatePerimeter (Triangle triangle) {
         return 1.1;
     }
 
-    public double calculatePerimeter () {
-        return 1.1;
-    }
-
-    public double calculateDistanceBetweenFirstPointAndSecondPoint (Triangle triangle) {
-        double distanceBetweenFirstPointAndSecondPoint = Math.sqrt(Math.pow((triangle.getFirstPoint().getX() - triangle.getSecondPoint().getX()), 2) + Math.pow((triangle.getFirstPoint().getY() - triangle.getSecondPoint().getY()), 2));
-        return distanceBetweenFirstPointAndSecondPoint;
-    }
-    public double calculateDistanceBetweenSecondPointAndThirdPoint (Triangle triangle) {
-        double distanceBetweenSecondPointAndThirdPoint = Math.sqrt(Math.pow((triangle.getSecondPoint().getX() - triangle.getThirdPoint().getX()), 2) + Math.pow((triangle.getSecondPoint().getY() - triangle.getThirdPoint().getY()), 2));
-        return distanceBetweenSecondPointAndThirdPoint;
-    }
-
-    public double calculateDistanceBetweenFirstPointAndThirdPoint (Triangle triangle) {
-        double distanceBetweenFirstPointAndThirdPoint = Math.sqrt(Math.pow((triangle.getFirstPoint().getX() - triangle.getThirdPoint().getX()), 2) + Math.pow((triangle.getFirstPoint().getY() - triangle.getThirdPoint().getY()), 2));
-        return distanceBetweenFirstPointAndThirdPoint;
+    public double calculateDistanceBetweenPoints (Point pointOne, Point pointTwo) {
+        double distanceBetweenPoints = Math.sqrt(Math.pow((pointOne.getX() - pointTwo.getX()), 2) + Math.pow((pointOne.getY() - pointTwo.getY()), 2));
+        return distanceBetweenPoints;
     }
 
     public double calculateAngleBetweenFirstAndSecondSides (Triangle triangle) {
             double angleBetweenFirstAndSecondSides = 0;
             double firstSegment = calculateDistanceBetweenFirstPointAndSecondPoint ();
 
-            double SecondSegment = calculateDistanceBetweenSecondPointAndThirdPoint (Triangle triangle);
+            double SecondSegment = calculateDistanceBetweenSecondPointAndThirdPoint (triangle);
 
-            double ThirdSegment = calculateDistanceBetweenFirstPointAndThirdPoint (Triangle triangle);
+            double ThirdSegment = calculateDistanceBetweenFirstPointAndThirdPoint (triangle);
 
             angles[0] = Math.acos((SecondSegment*SecondSegment + ThirdSegment*ThirdSegment - firstSegment*firstSegment) / (2*SecondSegment*ThirdSegment));
 

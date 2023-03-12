@@ -1,3 +1,5 @@
+package org.training.triangles;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.training.triangles.logic.TriangleValidator;
