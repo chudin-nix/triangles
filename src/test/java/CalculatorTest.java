@@ -6,11 +6,6 @@ public class CalculatorTest {
     @Test
     public void testIsTriangle(){
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         Calculator calculator = new Calculator();
 
         //when
@@ -22,11 +17,6 @@ public class CalculatorTest {
     @Test
     public void calculateArea(){
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         Calculator calculator = new Calculator();
 
         //when
@@ -38,11 +28,6 @@ public class CalculatorTest {
     @Test
     public void calculatePerimeter(){
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         Calculator calculator = new Calculator();
 
         //when
@@ -51,5 +36,17 @@ public class CalculatorTest {
         //then
         Assert.assertEquals(1.1, result, 0.01);
     }
+    @Test
+    public void distanceBetweenPoints(){
+        //given
+        Calculator calculator = new Calculator();
+
+        //when
+        double result = calculator.distanceBetweenPoints();
+
+        //then
+        Assert.assertEquals(1.4, result, 0.01);
+    }
+
 }
 
