@@ -6,19 +6,26 @@ import org.training.triangles.model.Triangle;
 public class Calculator {
 
     public boolean isTriangle (Triangle triangle) {
+
+//        boolean isTriangle = ((triangle.getThirdPoint() - x_1) / (x_2 - x_1) == (y_3 - y_1) / (y_2 - y_1))
         return true;
     }
 
     public double calculateArea (Triangle triangle) {
-        Point firstPoint = triangle.getFirstPoint();
-        Point secondPoint = triangle.getSecondPoint();
-        Point thirdPoint = triangle.getThirdPoint();
-        double square = 1/2  * calculateDistanceBetweenPoints(firstPoint, secondPoint) * calculateDistanceBetweenPoints(secondPoint, thirdPoint) * Math.sin(y);
-        return square;
+        double firstSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
+        double secondSide = calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
+        double thirdSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
+        double halfPerimeter = firstSide + secondSide + thirdSide / 2;
+        double triangleArea = Math.sqrt(halfPerimeter * (halfPerimeter - firstSide) * (halfPerimeter - secondSide) * (halfPerimeter - thirdSide));
+        return triangleArea;
     }
 
     public double calculatePerimeter (Triangle triangle) {
-        return 1.1;
+        double firstSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
+        double secondSide = calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
+        double thirdSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
+        double perimeter = firstSide + secondSide + thirdSide;
+        return perimeter;
     }
 
     public double calculateDistanceBetweenPoints (Point pointOne, Point pointTwo) {
@@ -26,27 +33,4 @@ public class Calculator {
         return distanceBetweenPoints;
     }
 
-    public double calculateAngleBetweenFirstAndSecondSides (Triangle triangle) {
-            double angleBetweenFirstAndSecondSides = 0;
-            double firstSegment = calculateDistanceBetweenFirstPointAndSecondPoint ();
-
-            double SecondSegment = calculateDistanceBetweenSecondPointAndThirdPoint (triangle);
-
-            double ThirdSegment = calculateDistanceBetweenFirstPointAndThirdPoint (triangle);
-
-            angles[0] = Math.acos((SecondSegment*SecondSegment + ThirdSegment*ThirdSegment - firstSegment*firstSegment) / (2*SecondSegment*ThirdSegment));
-
-            angles[0] *= 180 / Math.PI;
-
-            angles[1] = Math.acos((calculateDistanceBetweenFirstPointAndSecondPoint () * firstSegment + SecondSegment * SecondSegment - ThirdSegment * ThirdSegment) / (2 * firstSegment * SecondSegment));
-
-            angles[1] *= 180 / Math.PI;
-
-            angles[2] = Math.acos((firstSegment * firstSegment + ThirdSegment * ThirdSegment - SecondSegment * SecondSegment) / (2* firstSegment * ThirdSegment));
-
-            angles[2] *= 180 / Math.PI;
-
-
-        return angleBetweenFirstAndSecondSides;
-    }
 }
