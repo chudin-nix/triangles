@@ -37,12 +37,12 @@ public class CalculatorTest {
         Assert.assertEquals(1.1, result, 0.01);
     }
     @Test
-    public void distanceBetweenPoints(){
+    public void calculateDistanceBetweenPoints(){
         //given
         Calculator calculator = new Calculator();
 
         //when
-        double result = calculator.distanceBetweenPoints();
+        double result = calculator.calculateLengthSidesTriangle();
 
         //then
         Assert.assertEquals(1.4, result, 0.01);

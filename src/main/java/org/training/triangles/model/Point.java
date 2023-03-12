@@ -20,4 +20,8 @@ public class Point {
     public void setY(double setY) {
         y = setY;
     }
+
+    public double getY() {
+        return y;
+    }
 }

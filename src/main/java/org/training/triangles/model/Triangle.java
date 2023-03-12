@@ -32,4 +32,8 @@ public class Triangle {
     public void setThirdPoint(Point setThirdPoint) {
         thirdPoint = setThirdPoint;
     }
+
+    public Point getThirdPoint() {
+        return thirdPoint;
+    }
 }
