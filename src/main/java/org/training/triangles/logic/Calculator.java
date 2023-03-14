@@ -6,11 +6,15 @@ import org.training.triangles.model.Triangle;
 public class Calculator {
 
     public boolean isTriangle (Triangle triangle) {
-
-//        boolean isTriangle = ((triangle.getThirdPoint() - x_1) / (x_2 - x_1) == (y_3 - y_1) / (y_2 - y_1))
+        Point firstPoint = triangle.getFirstPoint();
+        Point secondPoint = triangle.getSecondPoint();
+        Point thirdPoint = triangle.getThirdPoint();
+        boolean isTriange = ((thirdPoint.getX() - firstPoint.getX()) * (secondPoint.getY() - firstPoint.getY()) == (thirdPoint.getY() - firstPoint.getY()) * (secondPoint.getX() - firstPoint.getX()));
         return true;
     }
 
+/* В методах ниже заводил переменные специально, чтобы код не становился очень длинным и был более читабельным.
+    Возможно есть смысл подумать как их вынести */
     public double calculateArea (Triangle triangle) {
         double firstSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
         double secondSide = calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
