@@ -1,18 +1,50 @@
 package org.training.triangles;
 
+import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
+import java.util.List;
+
 public class Director {
-    public static void main(String[] args) {
+    private DataReader reader;
 
-// создаем три точки и треугольник, передаем точки в объект треугольник
-        Point pointOne = new Point(1.2, 3.5);
-        Point pointTwo = new Point(5.4, 2.0);
-        Point pointThree = new Point(4.0, 6.0);
-        Triangle firstTriangle = new Triangle(pointOne, pointTwo, pointThree);
+    private TriangleValidator validator;
 
-// вычисляем площадь треугольника
+    private TriangleCreator creator;
+// Ниже нужно додумать логику
+    public void Director (DataReader reader) {
 
+    }
+
+    public List  read (String path) {
+        List<Triangle> triangles = null;
+        return triangles;
+    }
+
+    public void setReader (DataReader setReader) {
+        reader = setReader;
+    }
+
+    public DataReader getReader() {
+        return reader;
+    }
+
+    public void setValidator(TriangleValidator setValidator) {
+        validator = setValidator;
+    }
+
+    public TriangleValidator getValidator() {
+
+        return validator;
+    }
+
+    public void setCreator(TriangleCreator setCreator) {
+        creator = setCreator;
+    }
+
+    public TriangleCreator getCreator() {
+
+        return creator;
     }
 }

@@ -9,7 +9,7 @@ public class CalculatorTest {
     public void testIsTriangle(){
         //given
         Calculator calculator = new Calculator();
-
+        Director director = new Director();
         //when
         boolean result = calculator.isTriangle();
 
