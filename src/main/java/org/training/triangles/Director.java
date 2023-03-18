@@ -3,7 +3,7 @@ package org.training.triangles;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-public class Runner {
+public class Director {
     public static void main(String[] args) {
 
 // создаем три точки и треугольник, передаем точки в объект треугольник
