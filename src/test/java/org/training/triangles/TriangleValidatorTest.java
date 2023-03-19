@@ -15,7 +15,7 @@ public class TriangleValidatorTest {
         //given
         TriangleValidator triangleValidator = new TriangleValidator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
@@ -29,21 +29,21 @@ public class TriangleValidatorTest {
         //given
         TriangleValidator triangleValidator = new TriangleValidator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
         boolean result = triangleValidator.isIsoscelesTriangle(triangles.get(0));
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertEquals(false, result);
     }
     @Test
     public void testIsEquilateralTriangle() throws IOException {
         //given
         TriangleValidator triangleValidator = new TriangleValidator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
@@ -57,21 +57,21 @@ public class TriangleValidatorTest {
         //given
         TriangleValidator triangleValidator = new TriangleValidator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
         boolean result = triangleValidator.isAcuteTriangle(triangles.get(0));
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertEquals(false, result);
     }
     @Test
     public void testIsObtuseTriangle() throws IOException {
         //given
         TriangleValidator triangleValidator = new TriangleValidator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when

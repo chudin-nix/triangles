@@ -14,7 +14,7 @@ public class CalculatorTest {
         //given
         Calculator calculator = new Calculator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
@@ -28,35 +28,35 @@ public class CalculatorTest {
         //given
         Calculator calculator = new Calculator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
         double result = calculator.calculateArea(triangles.get(0));
 
         //then
-        Assert.assertEquals(1.1, result, 0.01);
+        Assert.assertEquals(0.0, result, 0.01);
     }
     @Test
     public void calculatePerimeter() throws IOException {
         //given
         Calculator calculator = new Calculator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
         double result = calculator.calculatePerimeter(triangles.get(0));
 
         //then
-        Assert.assertEquals(1.1, result, 0.01);
+        Assert.assertEquals(0.0, result, 0.01);
     }
     @Test
     public void calculateDistanceBetweenPoints() throws IOException {
         //given
         Calculator calculator = new Calculator();
         Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/test.txt";
+        String path = "./src/main/java/org/training/triangles/triangles.txt";
         List<Triangle> triangles = director.read(path);
         Triangle triangle = triangles.get(0);
 
@@ -64,7 +64,7 @@ public class CalculatorTest {
         double result = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
 
         //then
-        Assert.assertEquals(1.4, result, 0.01);
+        Assert.assertEquals(0.0, result, 0.01);
     }
 
 }

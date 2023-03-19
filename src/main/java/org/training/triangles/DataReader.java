@@ -24,7 +24,7 @@ public class DataReader {
 
 
     public List<String> read (String path) throws IOException {
-        List<String> listObjectsFromFile = Files.readAllLines(Paths.get("./src/main/java/org/training/triangles/test.txt"));
+        List<String> listObjectsFromFile = Files.readAllLines(Paths.get(path));
         return listObjectsFromFile;
     }
 }
