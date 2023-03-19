@@ -1,11 +1,9 @@
 package org.training.triangles;
 
-import org.training.triangles.model.Triangle;
-
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataReader {
@@ -26,7 +24,7 @@ public class DataReader {
 
 
     public List<String> read (String path) throws IOException {
-        List<String> listObjectsFromFile = Files.readAllLines(Paths.get("triangles.txt"));
+        List<String> listObjectsFromFile = Files.readAllLines(Paths.get("./src/main/java/org/training/triangles/test.txt"));
         return listObjectsFromFile;
     }
 }

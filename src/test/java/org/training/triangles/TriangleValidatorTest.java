@@ -2,85 +2,80 @@ package org.training.triangles;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.training.triangles.logic.Calculator;
 import org.training.triangles.logic.TriangleValidator;
+import org.training.triangles.model.Triangle;
+
+import java.io.IOException;
+import java.util.List;
 
 public class TriangleValidatorTest {
     @Test
-    public void testIsRightTriangle(){
+    public void testIsRightTriangle() throws IOException {
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         TriangleValidator triangleValidator = new TriangleValidator();
+        Director director = new Director();
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        List<Triangle> triangles = director.read(path);
 
         //when
-        boolean result = triangleValidator.isRightTriangle();
+        boolean result = triangleValidator.isRightTriangle(triangles.get(0));
 
         //then
         Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsIsoscelesTriangle(){
+    public void testIsIsoscelesTriangle() throws IOException {
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         TriangleValidator triangleValidator = new TriangleValidator();
+        Director director = new Director();
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        List<Triangle> triangles = director.read(path);
 
         //when
-        boolean result = triangleValidator.isIsoscelesTriangle();
+        boolean result = triangleValidator.isIsoscelesTriangle(triangles.get(0));
 
         //then
         Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsEquilateralTriangle(){
+    public void testIsEquilateralTriangle() throws IOException {
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         TriangleValidator triangleValidator = new TriangleValidator();
+        Director director = new Director();
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        List<Triangle> triangles = director.read(path);
 
         //when
-        boolean result = triangleValidator.isEquilateralTriangle();
+        boolean result = triangleValidator.isEquilateralTriangle(triangles.get(0));
 
         //then
         Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsAcuteTriangle(){
+    public void testIsAcuteTriangle() throws IOException {
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         TriangleValidator triangleValidator = new TriangleValidator();
+        Director director = new Director();
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        List<Triangle> triangles = director.read(path);
 
         //when
-        boolean result = triangleValidator.isAcuteTriangle();
+        boolean result = triangleValidator.isAcuteTriangle(triangles.get(0));
 
         //then
         Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsObtuseTriangle(){
+    public void testIsObtuseTriangle() throws IOException {
         //given
-        /*
-        Autopark autopark = new Autopark();
-        BusCar bus = new BusCar("Beautiful", 1.0, 4, Color.RED, BusCarType.BIG);
-        autopark.add(bus);
-        CarCalculator calculator = new CarCalculator(); */
         TriangleValidator triangleValidator = new TriangleValidator();
+        Director director = new Director();
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        List<Triangle> triangles = director.read(path);
 
         //when
-        boolean result = triangleValidator.isObtuseTriangle();
+        boolean result = triangleValidator.isObtuseTriangle(triangles.get(0));
 
         //then
         Assert.assertEquals(true, result);

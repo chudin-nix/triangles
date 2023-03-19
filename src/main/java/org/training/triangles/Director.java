@@ -1,9 +1,9 @@
 package org.training.triangles;
 
 import org.training.triangles.logic.TriangleValidator;
-import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Director {
@@ -13,12 +13,22 @@ public class Director {
 
     private TriangleCreator creator;
 // Ниже нужно додумать логику
-    public void Director (DataReader reader) {
-
+    public Director() throws IOException {
+        String path = "./src/main/java/org/training/triangles/test.txt";
+        DataReader dataReader = new DataReader();
+        this.setReader(reader);
+        this.reader = (DataReader) dataReader.read(path);
     }
 
-    public List  read (String path) {
+    public List  read (String path) throws IOException {
+        DataReader dataReader = new DataReader();
+        TriangleCreator triangleCreator = new TriangleCreator();
+        List<String> coordinatesTriangle = dataReader.read(path);
         List<Triangle> triangles = null;
+        for (int i = 0; i < coordinatesTriangle.size(); i++) {
+            triangles = (List<Triangle>) triangleCreator.createTriangle(coordinatesTriangle.get(i));
+        }
+
         return triangles;
     }
 
