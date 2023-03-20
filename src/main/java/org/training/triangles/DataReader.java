@@ -22,7 +22,7 @@ public class DataReader {
 }
 */
 
-
+// Тут написать через BufferedReader FileInputStream
     public List<String> read (String path) throws IOException {
         List<String> listObjectsFromFile = Files.readAllLines(Paths.get(path));
         return listObjectsFromFile;

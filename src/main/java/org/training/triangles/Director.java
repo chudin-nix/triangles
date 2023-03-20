@@ -14,13 +14,13 @@ public class Director {
 
     private TriangleCreator creator;
 // Ниже нужно будет убирать переменную path, пока оставляю как заглушку
-    public Director() throws IOException {
-        String path = "./src/main/java/org/training/triangles/triangles.txt";
-        DataReader dataReader = new DataReader();
-        this.setReader(reader);
+    public Director(DataReader dataReader, TriangleValidator triangleValidator, TriangleCreator triangleCreator) {
+        reader = dataReader;
+        validator = triangleValidator;
+        creator = triangleCreator;
     }
 //Тут проблема, почему-то передаются только
-    public List  read (String path) throws IOException {
+    public List<Triangle>  read (String path) throws IOException {
         DataReader dataReader = new DataReader();
         TriangleCreator triangleCreator = new TriangleCreator();
         List<String> coordinatesTriangle = dataReader.read(path);
@@ -32,29 +32,4 @@ public class Director {
         return triangles;
     }
 
-    public void setReader (DataReader setReader) {
-        reader = setReader;
-    }
-
-    public DataReader getReader() {
-        return reader;
-    }
-
-    public void setValidator(TriangleValidator setValidator) {
-        validator = setValidator;
-    }
-
-    public TriangleValidator getValidator() {
-
-        return validator;
-    }
-
-    public void setCreator(TriangleCreator setCreator) {
-        creator = setCreator;
-    }
-
-    public TriangleCreator getCreator() {
-
-        return creator;
-    }
 }

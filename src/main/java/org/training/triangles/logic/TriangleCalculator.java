@@ -3,7 +3,7 @@ package org.training.triangles.logic;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-public class Calculator {
+public class TriangleCalculator {
 
     public boolean isTriangle (Triangle triangle) {
         Point firstPoint = triangle.getFirstPoint();
