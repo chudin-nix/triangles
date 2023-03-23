@@ -11,18 +11,22 @@ import java.util.List;
 
 public class TriangleCalculatorTest {
     @Test
-    public void testIsTriangle() throws IOException {
+    public void testIsTriangle() {
         //given
-        Director director = new Director();
+        Point pointOne = new Point(1.1, 4.5);
+        Point pointTwo = new Point(2.7, 3.6);
+        Point pointTree = new Point(5.1, 6.2);
+        TriangleCalculator triangleCalculator = new TriangleCalculator();
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
 
         //when
-        boolean result = calculator.isTriangle(triangles.get(0));
+        boolean result = triangleCalculator.isTriangle(triangle);
 
         //then
         Assert.assertEquals(true, result);
     }
     @Test
-    public void calculateArea() throws IOException {
+    public void calculateArea() {
         //given
         Point pointOne = new Point(1.1, 4.5);
         Point pointTwo = new Point(2.7, 3.6);
@@ -37,30 +41,29 @@ public class TriangleCalculatorTest {
         Assert.assertEquals(0.0, result, 0.01);
     }
     @Test
-    public void calculatePerimeter() throws IOException {
+    public void calculatePerimeter() {
         //given
-        TriangleCalculator calculator = new TriangleCalculator();
-        Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/triangles.txt";
-        List<Triangle> triangles = director.read(path);
+        Point pointOne = new Point(1.1, 4.5);
+        Point pointTwo = new Point(2.7, 3.6);
+        Point pointTree = new Point(5.1, 6.2);
+        TriangleCalculator triangleCalculator = new TriangleCalculator();
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
 
         //when
-        double result = calculator.calculatePerimeter(triangles.get(0));
+        double result = triangleCalculator.calculatePerimeter(triangle);
 
         //then
         Assert.assertEquals(0.0, result, 0.01);
     }
     @Test
-    public void calculateDistanceBetweenPoints() throws IOException {
+    public void calculateDistanceBetweenPoints() {
         //given
-        TriangleCalculator calculator = new TriangleCalculator();
-        Director director = new Director();
-        String path = "./src/main/java/org/training/triangles/triangles.txt";
-        List<Triangle> triangles = director.read(path);
-        Triangle triangle = triangles.get(0);
+        Point pointOne = new Point(1.1, 4.5);
+        Point pointTwo = new Point(2.7, 3.6);
+        TriangleCalculator triangleCalculator = new TriangleCalculator();
 
         //when
-        double result = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
+        double result = triangleCalculator.calculateDistanceBetweenPoints(pointOne, pointTwo);
 
         //then
         Assert.assertEquals(0.0, result, 0.01);
