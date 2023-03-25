@@ -1,9 +1,6 @@
 package org.training.triangles;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 import java.io.*;
 
@@ -23,16 +20,18 @@ public class DataReader {
 }
 */
 
-// Тут написать через BufferedReader FileInputStream
-    public List<String> read (String path) throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("./data/triangles.txt");
-       BufferedReader bufferedReader = new BufferedReader();
-       String c;
-       while ((c=fileInputStream.) != null) {
-           System.out.println(c);
-       }
+public DataReader () {
 
-        List<String> listObjectsFromFile = Files.readAllLines(Paths.get(path));
+}
+
+    public List<String> read (String path) throws IOException {
+        FileInputStream fileInputStream = new FileInputStream(path);
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        List<String> listObjectsFromFile = null;
+        while (bufferedReader.readLine() != null) {
+            listObjectsFromFile.add(bufferedReader.readLine());
+        }
 
         return listObjectsFromFile;
     }

@@ -13,13 +13,13 @@ public class Director {
     private TriangleValidator validator;
 
     private TriangleCreator creator;
-// Ниже нужно будет убирать переменную path, пока оставляю как заглушку
+
     public Director(DataReader dataReader, TriangleValidator triangleValidator, TriangleCreator triangleCreator) {
         reader = dataReader;
         validator = triangleValidator;
         creator = triangleCreator;
     }
-//Тут проблема, почему-то передаются только
+
     public List<Triangle>  read (String path) throws IOException {
         DataReader dataReader = new DataReader();
         TriangleCreator triangleCreator = new TriangleCreator();

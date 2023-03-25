@@ -2,7 +2,7 @@ package org.training.triangles;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mock;
+import org.mockito.MockingDetails;
 import org.mockito.Mockito;
 import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Triangle;
@@ -20,11 +20,11 @@ public class DirectorTest {
     public void Director() throws IOException {
         //given
         DataReader reader = Mockito.mock(DataReader.class);
-        when(reader.read(anyString())).thenReturn(Arrays.asList("1 1 1", "2 2 2"));
+        when(reader.read(anyString())).thenReturn(Arrays.asList("1.1 1.5 1.6", "2.2 2.8 2.3"));
         TriangleValidator triangleValidator = Mockito.mock(TriangleValidator.class);
-        TriangleCreator creator = Mockito.mock(TriangleCreator.class);
-        Director director = new Director(reader, triangleValidator, creator);
-        String path = "./data/triangles.txt";
+        TriangleCreator triangleCreator = Mockito.mock(TriangleCreator.class);
+        Director director = new Director(reader, triangleValidator, triangleCreator);
+        String path = "./src/test/resources/triangles.txt";
         List<Triangle> triangles = director.read(path);
 
         //when
