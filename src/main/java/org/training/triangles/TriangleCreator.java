@@ -6,6 +6,7 @@ import org.training.triangles.model.Triangle;
 import java.util.List;
 
 public class TriangleCreator {
+
     public Triangle createTriangle (String lineCoordinates) {
         String[] triangleCoordinates = lineCoordinates.split(" ");
         Point pointOne = new Point(Double.parseDouble(triangleCoordinates[0]), Double.parseDouble(triangleCoordinates[1]));

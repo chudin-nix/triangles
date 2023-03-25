@@ -5,6 +5,7 @@ import org.training.triangles.model.Triangle;
 
 public class TriangleCalculator {
 
+
     public boolean isTriangle (Triangle triangle) {
         Point firstPoint = triangle.getFirstPoint();
         Point secondPoint = triangle.getSecondPoint();
@@ -13,8 +14,7 @@ public class TriangleCalculator {
         return true;
     }
 
-/* В методах ниже заводил переменные специально, чтобы код не становился очень длинным и был более читабельным.
-    Возможно есть смысл подумать как их вынести */
+    // Следует ли, делать название testCalculateSurfaceAreaShouldCalculateWhenTriangleValid, как было в видео на разборе дз?
     public double calculateArea (Triangle triangle) {
         double firstSide = calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
         double secondSide = calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());

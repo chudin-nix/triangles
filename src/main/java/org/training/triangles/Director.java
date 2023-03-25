@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Director {
-    private DataReader reader;
+    final private DataReader reader;
 
-    private TriangleValidator validator;
+    final private TriangleValidator validator;
 
-    private TriangleCreator creator;
+    final private TriangleCreator creator;
 
     public Director(DataReader dataReader, TriangleValidator triangleValidator, TriangleCreator triangleCreator) {
         reader = dataReader;
@@ -20,7 +20,7 @@ public class Director {
         creator = triangleCreator;
     }
 
-    public List<Triangle>  read (String path) throws IOException {
+    public List<Triangle>  read (String path) throws DataException {
         DataReader dataReader = new DataReader();
         TriangleCreator triangleCreator = new TriangleCreator();
         List<String> coordinatesTriangle = dataReader.read(path);

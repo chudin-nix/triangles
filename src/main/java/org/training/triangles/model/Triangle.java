@@ -34,6 +34,7 @@ public class Triangle {
     }
 
     public Point getThirdPoint() {
+
         return thirdPoint;
     }
 }

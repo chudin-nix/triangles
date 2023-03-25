@@ -4,6 +4,8 @@ import org.training.triangles.model.Triangle;
 
 public class TriangleValidator {
 
+    private static final String TRIANGLE_LINE_REGEX = "[0-9]|\s|\.";
+
     public boolean isRightTriangle (Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
@@ -17,12 +19,12 @@ public class TriangleValidator {
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
         double secondSide = calculator.calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
-    // тут надо переписать, потому что очень длинно получается
+
         boolean isIsoscelesTriangle = ((firstSide == secondSide) & (firstSide != thirdSide)) | ((firstSide == thirdSide) & (firstSide != secondSide)) | ((firstSide != secondSide) & (firstSide != thirdSide));
             return isIsoscelesTriangle;
         }
 
-    // проверка является ли треугольник равносторонним
+
     public boolean isEquilateralTriangle (Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
@@ -31,7 +33,7 @@ public class TriangleValidator {
         boolean isEquilateralTriangle = firstSide == secondSide & firstSide == thirdSide;
         return isEquilateralTriangle;
     }
-    // проверка является ли треугольник остроугольным
+
     public boolean isAcuteTriangle(Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
@@ -50,7 +52,7 @@ public class TriangleValidator {
         }
         return isAcuteTriangle;
     }
-    // проверка является ли треугольник тупоугольным
+
     public boolean isObtuseTriangle(Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());

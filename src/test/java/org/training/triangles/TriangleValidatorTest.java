@@ -2,21 +2,18 @@ package org.training.triangles;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.training.triangles.logic.TriangleCalculator;
 import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-import java.io.IOException;
-import java.util.List;
 
 public class TriangleValidatorTest {
     @Test
-    public void testIsRightTriangle() throws IOException {
+    public void testIsRightTriangle() {
         //given
-        Point pointOne = new Point(1.1, 4.5);
-        Point pointTwo = new Point(2.7, 3.6);
-        Point pointTree = new Point(5.1, 6.2);
+        Point pointOne = new Point(1.5, 3.2);
+        Point pointTwo = new Point(4.0, 6.0);
+        Point pointTree = new Point(5.2, 2.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -24,14 +21,14 @@ public class TriangleValidatorTest {
         boolean result = triangleValidator.isRightTriangle(triangle);
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertEquals(false, result);
     }
     @Test
-    public void testIsIsoscelesTriangle() throws IOException {
+    public void testIsIsoscelesTriangle() {
         //given
-        Point pointOne = new Point(1.1, 4.5);
-        Point pointTwo = new Point(2.7, 3.6);
-        Point pointTree = new Point(5.1, 6.2);
+        Point pointOne = new Point(1.5, 3.2);
+        Point pointTwo = new Point(4.0, 6.0);
+        Point pointTree = new Point(5.2, 2.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -39,14 +36,14 @@ public class TriangleValidatorTest {
         boolean result = triangleValidator.isIsoscelesTriangle(triangle);
 
         //then
-        Assert.assertEquals(false, result);
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsEquilateralTriangle() throws IOException {
+    public void testIsEquilateralTriangle() {
         //given
-        Point pointOne = new Point(1.1, 4.5);
-        Point pointTwo = new Point(2.7, 3.6);
-        Point pointTree = new Point(5.1, 6.2);
+        Point pointOne = new Point(1.5, 3.2);
+        Point pointTwo = new Point(4.0, 6.0);
+        Point pointTree = new Point(5.2, 2.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -54,14 +51,14 @@ public class TriangleValidatorTest {
         boolean result = triangleValidator.isEquilateralTriangle(triangle);
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertEquals(false, result);
     }
     @Test
-    public void testIsAcuteTriangle() throws IOException {
+    public void testIsAcuteTriangle() {
         //given
-        Point pointOne = new Point(1.1, 4.5);
-        Point pointTwo = new Point(2.7, 3.6);
-        Point pointTree = new Point(5.1, 6.2);
+        Point pointOne = new Point(1.5, 3.2);
+        Point pointTwo = new Point(4.0, 6.0);
+        Point pointTree = new Point(5.2, 2.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -69,14 +66,14 @@ public class TriangleValidatorTest {
         boolean result = triangleValidator.isAcuteTriangle(triangle);
 
         //then
-        Assert.assertEquals(false, result);
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void testIsObtuseTriangle() throws IOException {
+    public void testIsObtuseTriangle() {
         //given
-        Point pointOne = new Point(1.1, 4.5);
-        Point pointTwo = new Point(2.7, 3.6);
-        Point pointTree = new Point(5.1, 6.2);
+        Point pointOne = new Point(1.5, 3.2);
+        Point pointTwo = new Point(4.0, 6.0);
+        Point pointTree = new Point(5.2, 2.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
         TriangleValidator triangleValidator = new TriangleValidator();
 

@@ -24,7 +24,8 @@ public DataReader () {
 
 }
 
-    public List<String> read (String path) throws IOException {
+    public List<String> read (String path) throws DataException {
+    try {
         FileInputStream fileInputStream = new FileInputStream(path);
         InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
@@ -32,7 +33,11 @@ public DataReader () {
         while (bufferedReader.readLine() != null) {
             listObjectsFromFile.add(bufferedReader.readLine());
         }
-
+    } catch (FileNotFoundException e) {
+        throw new DataException("Could not find file by that path", e);
+    } catch (IOException e) {
+        throw new DataExeption("An I/O error occured");
+    }
         return listObjectsFromFile;
     }
 }
