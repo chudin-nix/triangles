@@ -3,7 +3,6 @@ package org.training.triangles;
 import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Triangle;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

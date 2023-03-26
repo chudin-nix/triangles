@@ -4,7 +4,7 @@ import org.training.triangles.model.Triangle;
 
 public class TriangleValidator {
 
-    private static final String TRIANGLE_LINE_REGEX = "[0-9]|\s|\.";
+//    private static final String TRIANGLE_LINE_REGEX = "[0-9]|\s|\.";
 
     public boolean isRightTriangle (Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();

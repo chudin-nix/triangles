@@ -1,4 +1,9 @@
 package org.training.triangles;
 
-public class DataException {
+import java.io.IOException;
+
+public class DataException extends Throwable {
+    public DataException(String s, IOException e) {
+
+    }
 }
