@@ -1,6 +1,6 @@
 package org.training.triangles;
 
-import org.training.triangles.DataException;
+import org.training.triangles.logic.TriangleValidator;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,15 +33,17 @@ public DataReader () {
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             listObjectsFromFile = null;
+            TriangleValidator triangleValidator = new TriangleValidator();
             while (bufferedReader.readLine() != null) {
                 listObjectsFromFile.add(bufferedReader.readLine());
+                triangleValidator.isValidLine(listObjectsFromFile.toString());
             }
         } catch (FileNotFoundException e) {
-            throw new DataException("Could not find file by that path", e);
+            throw new DataException("Could not find file by that path");
 //        } catch (IOException e) {
 //            throw new DataExeption("An I/O error occured");
         } catch (IOException e) {
-            throw new DataException("Incorrect data in the file", e);
+            throw new DataException("Incorrect data in the file");
         }
         return listObjectsFromFile;
     }
