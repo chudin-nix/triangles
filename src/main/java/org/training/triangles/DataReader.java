@@ -1,8 +1,10 @@
 package org.training.triangles;
 
+import org.training.triangles.logic.TriangleLineValidator;
 import org.training.triangles.logic.TriangleValidator;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
@@ -27,16 +29,15 @@ public DataReader () {
 }
 
     public List<String> read (String path) throws DataException {
-        List<String> listObjectsFromFile;
+        List<String> listObjectsFromFile = new ArrayList<>();
         try {
             FileInputStream fileInputStream = new FileInputStream(path);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            listObjectsFromFile = null;
-            TriangleValidator triangleValidator = new TriangleValidator();
+            TriangleLineValidator triangleLineValidator = new TriangleLineValidator();
             while (bufferedReader.readLine() != null) {
                 listObjectsFromFile.add(bufferedReader.readLine());
-                triangleValidator.isValidLine(listObjectsFromFile.toString());
+                triangleLineValidator.isValidLine(listObjectsFromFile.toString());
             }
         } catch (FileNotFoundException e) {
             throw new DataException("Could not find file by that path");

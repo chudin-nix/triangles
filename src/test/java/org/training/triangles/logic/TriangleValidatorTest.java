@@ -1,4 +1,4 @@
-package org.training.triangles;
+package org.training.triangles.logic;
 
 import org.junit.Assert;
 import org.junit.Test;

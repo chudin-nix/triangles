@@ -6,12 +6,8 @@ import java.util.regex.Pattern;
 
 public class TriangleValidator {
 
-    // надо перписать регулярку, почему-то проблемы с точкой, не работает экранирование
-    private static final String TRIANGLE_LINE_REGEX = "[0-9]|\s|\.";
 
-    public boolean isValidLine (String line) {
-        return Pattern.matches(TRIANGLE_LINE_REGEX, line);
-    }
+
     public boolean isRightTriangle (Triangle triangle) {
         TriangleCalculator calculator = new TriangleCalculator();
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
