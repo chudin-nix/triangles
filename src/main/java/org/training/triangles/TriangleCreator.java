@@ -7,7 +7,7 @@ import java.util.List;
 
 public class TriangleCreator {
 
-    public Triangle createTriangle (String lineCoordinates) {
+    public Triangle createTriangle (String lineCoordinates) throws DataException{
         String[] triangleCoordinates = lineCoordinates.split(" ");
         Point pointOne = new Point(Double.parseDouble(triangleCoordinates[0]), Double.parseDouble(triangleCoordinates[1]));
         Point pointTwo = new Point(Double.parseDouble(triangleCoordinates[0]), Double.parseDouble(triangleCoordinates[1]));

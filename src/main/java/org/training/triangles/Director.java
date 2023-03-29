@@ -1,5 +1,6 @@
 package org.training.triangles;
 
+import org.training.triangles.logic.TriangleLineValidator;
 import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Triangle;
 
@@ -9,13 +10,13 @@ import java.util.List;
 public class Director {
     final private DataReader reader;
 
-    final private TriangleValidator validator;
+    final private TriangleLineValidator lineValidator;
 
     final private TriangleCreator creator;
 
-    public Director(DataReader dataReader, TriangleValidator triangleValidator, TriangleCreator triangleCreator) {
+    public Director(DataReader dataReader, TriangleLineValidator triangleLineValidator, TriangleCreator triangleCreator) {
         reader = dataReader;
-        validator = triangleValidator;
+        lineValidator = triangleLineValidator;
         creator = triangleCreator;
     }
 
