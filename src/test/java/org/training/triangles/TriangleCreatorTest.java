@@ -14,8 +14,8 @@ public class TriangleCreatorTest {
         TriangleCreator triangleCreator = new TriangleCreator();
         Point pointOne = new Point(1.5, 3.2);
         Point pointTwo = new Point(4.0, 6.0);
-        Point pointTree = new Point(5.2, 2.0);
-        Triangle triangle = new Triangle(pointOne, pointTwo, pointTree);
+        Point pointThree = new Point(5.2, 2.0);
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
 
         //when
         Triangle result = triangleCreator.createTriangle(VALID_LINE);

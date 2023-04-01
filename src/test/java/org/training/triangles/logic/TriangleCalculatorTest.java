@@ -38,7 +38,7 @@ public class TriangleCalculatorTest {
         double result = triangleCalculator.calculateArea(triangle);
 
         //then
-        Assert.assertEquals(0.0, result, 0.01);
+        Assert.assertEquals(23.51, result, 0.01);
     }
     @Test
     public void calculatePerimeter() {
@@ -53,7 +53,7 @@ public class TriangleCalculatorTest {
         double result = triangleCalculator.calculatePerimeter(triangle);
 
         //then
-        Assert.assertEquals(0.0, result, 0.01);
+        Assert.assertEquals(9.72, result, 0.01);
     }
     @Test
     public void calculateDistanceBetweenPoints() {
@@ -66,7 +66,7 @@ public class TriangleCalculatorTest {
         double result = triangleCalculator.calculateDistanceBetweenPoints(pointOne, pointTwo);
 
         //then
-        Assert.assertEquals(0.0, result, 0.01);
+        Assert.assertEquals(1.83, result, 0.01);
     }
 
 }

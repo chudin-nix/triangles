@@ -3,6 +3,8 @@ package org.training.triangles.logic;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
+import java.text.DecimalFormat;
+
 public class TriangleCalculator {
 
 
@@ -36,5 +38,4 @@ public class TriangleCalculator {
         double distanceBetweenPoints = Math.sqrt(Math.pow((pointOne.getX() - pointTwo.getX()), 2) + Math.pow((pointOne.getY() - pointTwo.getY()), 2));
         return distanceBetweenPoints;
     }
-
 }

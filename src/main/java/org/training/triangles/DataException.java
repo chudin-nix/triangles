@@ -1,7 +1,8 @@
 package org.training.triangles;
 
-public class DataException extends Throwable {
-    public DataException(String s) {
+public class DataException extends Exception {
+    public DataException(String message, Throwable e) {
+        super(message, e);
 
     }
 }

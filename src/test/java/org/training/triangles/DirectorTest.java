@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.training.triangles.logic.TriangleLineValidator;
-import org.training.triangles.logic.TriangleValidator;
+import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
 import java.util.Arrays;
@@ -19,20 +19,22 @@ public class DirectorTest {
     public void testShouldReadLineWhenLinesAreValid() throws DataException {
         //given
         DataReader reader = Mockito.mock(DataReader.class);
-        when(reader.read(anyString())).thenReturn(Arrays.asList("1.1 1.5 1.6", "2.2 2.8 2.3"));
-        // тут надо подумать, что должен возвращать валидатор
+        when(reader.read(anyString())).thenReturn(Arrays.asList("4.0 1.0 8.0 4.0 1.0 7.0", "1.1 4.2 6.8 7.9 6.2 4.5"));
         TriangleLineValidator triangleLineValidator = Mockito.mock(TriangleLineValidator.class);
         when(triangleLineValidator.isValidLine(anyString())).thenReturn(true);
-        // тут надо написать конструкцию when для triangleCreator,
-        TriangleCreator triangleCreator = Mockito.mock(TriangleCreator.class);
+        TriangleCreator triangleCreator = new TriangleCreator();
         Director director = new Director(reader, triangleLineValidator, triangleCreator);
         String path = "./src/test/resources/triangles.txt";
-        List<Triangle> triangles = director.read(path);
+
+        Point point;
+        Triangle triangleOne = new Triangle(new Point(4.0, 1.0), new Point(8.0, 4.0), new Point(1.0, 7.0));
+        Triangle triangleTwo = new Triangle(new Point(1.1, 4.2), new Point(6.8, 7.9), new Point(6.2, 4.5));
+        List<Triangle> triangles = Arrays.asList(triangleOne,triangleTwo);
 
         //when
-        String result = triangleLineValidator.isValidLine(triangles.get(0));
+        List<Triangle> result = director.read(path);
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertEquals(triangles, result);
     }
 }

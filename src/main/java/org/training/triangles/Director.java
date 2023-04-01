@@ -4,6 +4,8 @@ import org.training.triangles.logic.TriangleLineValidator;
 import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Triangle;
 
+import javax.xml.crypto.Data;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +22,19 @@ public class Director {
         creator = triangleCreator;
     }
 
-    public List<Triangle>  read (String path) throws DataException {
-        DataReader dataReader = new DataReader();
-        TriangleCreator triangleCreator = new TriangleCreator();
-        List<String> coordinatesTriangle = dataReader.read(path);
+    public List<Triangle>  read (String path) {
         List<Triangle> triangles = new ArrayList<Triangle>();
-        for (int i = 0; i < coordinatesTriangle.size(); i++) {
-            triangles.add(triangleCreator.createTriangle(coordinatesTriangle.get(i)));
+        try {
+            List<String> coordinatesTriangle = reader.read(path);
+            for (int i = 0; i < coordinatesTriangle.size(); i++) {
+                String line = coordinatesTriangle.get(i);
+                if (lineValidator.isValidLine(line)) {
+                    triangles.add(creator.createTriangle(line));
+                }
+            }
+
+        } catch (DataException e) {
+            System.out.println(e.getMessage());
         }
 
         return triangles;

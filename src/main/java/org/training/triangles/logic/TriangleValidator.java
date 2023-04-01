@@ -2,8 +2,6 @@ package org.training.triangles.logic;
 
 import org.training.triangles.model.Triangle;
 
-import java.util.regex.Pattern;
-
 public class TriangleValidator {
 
     public static final double EPSILON = 0.001;
@@ -13,7 +11,17 @@ public class TriangleValidator {
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
         double secondSide = calculator.calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
-        boolean isRightTriangle = Math.pow(firstSide, 2) == Math.pow(secondSide, 2) + Math.pow(thirdSide, 2);
+        double bigSide = Math.max(Math.max(firstSide, secondSide), thirdSide);
+        boolean isRightTriangle = false;
+        if (bigSide - firstSide < EPSILON) {
+            isRightTriangle = Math.ceil(Math.pow(firstSide, 2) * 100) / 100 == (Math.pow(secondSide, 2) + Math.pow(thirdSide, 2));
+        }
+        if (bigSide - secondSide < EPSILON) {
+            isRightTriangle = Math.ceil(Math.pow(secondSide, 2) * 100) / 100 == (Math.pow(firstSide, 2) + Math.pow(thirdSide, 2));
+        }
+        if (bigSide - thirdSide < EPSILON) {
+            isRightTriangle = Math.ceil(Math.pow(thirdSide, 2) * 100) / 100 == (Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
+        }
         return isRightTriangle;
     }
     public boolean isIsoscelesTriangle (Triangle triangle) {
@@ -21,8 +29,7 @@ public class TriangleValidator {
         double firstSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getSecondPoint());
         double secondSide = calculator.calculateDistanceBetweenPoints(triangle.getSecondPoint(), triangle.getThirdPoint());
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
-
-        boolean isIsoscelesTriangle = ((firstSide == secondSide) && (firstSide != thirdSide)) || ((firstSide == thirdSide) && (firstSide != secondSide)) || ((firstSide != secondSide) && (firstSide != thirdSide));
+        boolean isIsoscelesTriangle = firstSide == secondSide || secondSide == thirdSide || firstSide == thirdSide;
             return isIsoscelesTriangle;
         }
 

@@ -29,8 +29,10 @@ public class DataReaderTest {
         //when
         List<String> strings = new ArrayList<>();
         strings.add("4.0 1.0 8.0 4.0 1.0 7.0");
-        strings.add("343434");
-        strings.add("hjkhjkjh");
+        strings.add("1.1 4.2 6.8 7.9 6.2 4.5");
+        strings.add("2.1 4.3 1.2 3.4 6.2 2.3");
+        strings.add("fsadf");
+        strings.add("*^*()^()(*&)&");
         List<String> result = dataReader.read("./src/test/resources/triangles.txt");
 
         //then
