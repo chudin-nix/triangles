@@ -2,7 +2,6 @@ package org.training.triangles.logic;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.training.triangles.logic.TriangleCalculator;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 

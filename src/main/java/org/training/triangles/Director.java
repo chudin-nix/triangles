@@ -1,11 +1,8 @@
 package org.training.triangles;
 
 import org.training.triangles.logic.TriangleLineValidator;
-import org.training.triangles.logic.TriangleValidator;
 import org.training.triangles.model.Triangle;
 
-import javax.xml.crypto.Data;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
