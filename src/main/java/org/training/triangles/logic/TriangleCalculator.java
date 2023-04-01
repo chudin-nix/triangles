@@ -3,8 +3,6 @@ package org.training.triangles.logic;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-import java.text.DecimalFormat;
-
 public class TriangleCalculator {
 
 
