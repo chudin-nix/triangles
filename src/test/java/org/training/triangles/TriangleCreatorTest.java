@@ -2,6 +2,7 @@ package org.training.triangles;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.training.triangles.logic.DataException;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 

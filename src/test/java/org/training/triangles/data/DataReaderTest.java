@@ -1,7 +1,9 @@
-package org.training.triangles;
+package org.training.triangles.data;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.training.triangles.data.DataReader;
+import org.training.triangles.logic.DataException;
 
 import java.util.ArrayList;
 import java.util.List;

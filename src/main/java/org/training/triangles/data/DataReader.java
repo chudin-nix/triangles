@@ -1,7 +1,6 @@
-package org.training.triangles;
+package org.training.triangles.data;
 
-import org.training.triangles.logic.TriangleLineValidator;
-import org.training.triangles.logic.TriangleValidator;
+import org.training.triangles.logic.DataException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,9 +25,12 @@ public DataReader () {
                     break;
                 }
                 listObjectsFromFile.add(newLine);
+                bufferedReader.close();
             }
         } catch (FileNotFoundException e) {
             throw new DataException("Could not find file by that path", e);
+            // тут почему-то не удалось добавить метод warn, idea предлагала сделать warning
+//            LOGGER.warn(e.getMessage());
 
         } catch (IOException e) {
             throw new DataException("Incorrect data in the file", e);
