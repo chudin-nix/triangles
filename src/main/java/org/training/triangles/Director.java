@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Director {
-    final private DataReader reader;
+    private final DataReader reader;
 
-    final private TriangleLineValidator lineValidator;
+    private final TriangleLineValidator lineValidator;
 
-    final private TriangleCreator creator;
+    private final TriangleCreator creator;
 
     public Director(DataReader dataReader, TriangleLineValidator triangleLineValidator, TriangleCreator triangleCreator) {
         reader = dataReader;

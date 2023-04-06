@@ -13,14 +13,14 @@ public class TriangleValidator {
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
         double bigSide = Math.max(Math.max(firstSide, secondSide), thirdSide);
         boolean isRightTriangle = false;
-        if (bigSide - firstSide < EPSILON) {
-            isRightTriangle = Math.ceil(Math.pow(firstSide, 2) * 100) / 100 == (Math.pow(secondSide, 2) + Math.pow(thirdSide, 2));
+        if (Math.abs(bigSide - firstSide) < EPSILON) {
+            isRightTriangle = Math.pow(firstSide, 2) == Math.pow(secondSide, 2) + Math.pow(thirdSide, 2);
         }
-        if (bigSide - secondSide < EPSILON) {
-            isRightTriangle = Math.ceil(Math.pow(secondSide, 2) * 100) / 100 == (Math.pow(firstSide, 2) + Math.pow(thirdSide, 2));
+        if (Math.abs(bigSide - secondSide) < EPSILON) {
+            isRightTriangle = Math.pow(secondSide, 2) == Math.pow(firstSide, 2) + Math.pow(thirdSide, 2);
         }
-        if (bigSide - thirdSide < EPSILON) {
-            isRightTriangle = Math.ceil(Math.pow(thirdSide, 2) * 100) / 100 == (Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
+        if (Math.abs(bigSide - thirdSide) < EPSILON) {
+            isRightTriangle = Math.pow(thirdSide, 2) == Math.pow(firstSide, 2) + Math.pow(secondSide, 2);
         }
         return isRightTriangle;
     }
@@ -50,13 +50,13 @@ public class TriangleValidator {
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
         double bigSide = Math.max(Math.max(firstSide, secondSide), thirdSide);
         boolean isAcuteTriangle = false;
-        if (bigSide - firstSide < EPSILON) {
+        if (Math.abs(bigSide - firstSide) < EPSILON) {
             isAcuteTriangle = Math.pow(firstSide, 2) < (Math.pow(secondSide, 2) + Math.pow(thirdSide, 2));
         }
-        if (bigSide - secondSide < EPSILON) {
+        if (Math.abs(bigSide - secondSide) < EPSILON) {
             isAcuteTriangle = Math.pow(secondSide, 2) < (Math.pow(firstSide, 2) + Math.pow(thirdSide, 2));
         }
-        if (bigSide - thirdSide < EPSILON) {
+        if (Math.abs(bigSide - thirdSide) < EPSILON) {
             isAcuteTriangle = Math.pow(thirdSide, 2) < (Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
         }
         return isAcuteTriangle;
@@ -69,13 +69,13 @@ public class TriangleValidator {
         double thirdSide = calculator.calculateDistanceBetweenPoints(triangle.getFirstPoint(), triangle.getThirdPoint());
         double bigSide = Math.max(Math.max(firstSide, secondSide), thirdSide);
         boolean isAcuteTriangle = false;
-        if (bigSide - firstSide < EPSILON) {
+        if (Math.abs(bigSide - firstSide) < EPSILON) {
             isAcuteTriangle = Math.pow(firstSide, 2) > (Math.pow(secondSide, 2) + Math.pow(thirdSide, 2));
         }
-        if (bigSide - secondSide < EPSILON) {
+        if (Math.abs(bigSide - secondSide) < EPSILON) {
             isAcuteTriangle = Math.pow(secondSide, 2) > (Math.pow(firstSide, 2) + Math.pow(thirdSide, 2));
         }
-        if (bigSide - thirdSide < EPSILON) {
+        if (Math.abs(bigSide - thirdSide) < EPSILON) {
             isAcuteTriangle = Math.pow(thirdSide, 2) > (Math.pow(firstSide, 2) + Math.pow(secondSide, 2));
         }
         return isAcuteTriangle;

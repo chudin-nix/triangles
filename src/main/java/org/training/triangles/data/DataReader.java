@@ -20,14 +20,13 @@ public DataReader () {
             FileInputStream fileInputStream = new FileInputStream(path);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            TriangleLineValidator triangleLineValidator = new TriangleLineValidator();
-            listObjectsFromFile.add(bufferedReader.readLine());
+            String line = bufferedReader.readLine();
             // тут надо переделать так, как говорил Филипп в видео
-            while (bufferedReader.readLine() != null) {
-                listObjectsFromFile.add(bufferedReader.readLine());
-
-                triangleLineValidator.isValidLine(listObjectsFromFile.toString());
+            while (line != null) {
+                listObjectsFromFile.add(line);
+                line = bufferedReader.readLine();
             }
+            bufferedReader.close();
         } catch (FileNotFoundException e) {
             throw new DataException("Could not find file by that path", e);
             // тут почему-то не удалось добавить метод warn, idea предлагала сделать warning
