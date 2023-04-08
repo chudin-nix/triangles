@@ -16,10 +16,9 @@ public DataReader () {
 
     public List<String> read (String path) throws DataException {
         List<String> listObjectsFromFile = new ArrayList<>();
+        BufferedReader bufferedReader = null;
         try {
-            FileInputStream fileInputStream = new FileInputStream(path);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            bufferedReader = new BufferedReader(new FileReader(path));
             String line = bufferedReader.readLine();
             // тут надо переделать так, как говорил Филипп в видео
             while (line != null) {
@@ -34,6 +33,14 @@ public DataReader () {
 
         } catch (IOException e) {
             throw new DataException("Incorrect data in the file", e);
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return listObjectsFromFile;
     }

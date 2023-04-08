@@ -1,5 +1,7 @@
 package org.training.triangles.model;
 
+import java.util.Objects;
+
 public class Triangle {
     private final Point firstPoint;
 
@@ -27,5 +29,18 @@ public class Triangle {
     public Point getThirdPoint() {
 
         return thirdPoint;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Objects.equals(firstPoint, triangle.firstPoint) && Objects.equals(secondPoint, triangle.secondPoint) && Objects.equals(thirdPoint, triangle.thirdPoint);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstPoint, secondPoint, thirdPoint);
     }
 }
