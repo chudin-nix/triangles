@@ -3,11 +3,11 @@ package org.training.triangles.model;
 import java.util.Objects;
 
 public class Triangle {
-    private final Point firstPoint;
+    private Point firstPoint;
 
-    private final Point secondPoint;
+    private Point secondPoint;
 
-    private final Point thirdPoint;
+    private Point thirdPoint;
 
     public Triangle (Point firstPoint, Point secondPoint, Point thirdPoint) {
         this.firstPoint = firstPoint;
@@ -29,6 +29,18 @@ public class Triangle {
     public Point getThirdPoint() {
 
         return thirdPoint;
+    }
+
+    public void setFirstPoint(Point firstPoint) {
+        this.firstPoint = firstPoint;
+    }
+
+    public void setSecondPoint(Point secondPoint) {
+        this.secondPoint = secondPoint;
+    }
+
+    public void setThirdPoint(Point thirdPoint) {
+        this.thirdPoint = thirdPoint;
     }
 
     @Override
