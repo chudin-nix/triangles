@@ -1,12 +1,11 @@
 package org.training.triangles;
 
 import org.training.triangles.logic.TriangleCalculator;
-import org.training.triangles.model.Triangle;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class TriangleStore {
+public class TriangleStore implements Observer{
 
     private static TriangleStore instance;
 
@@ -18,7 +17,7 @@ public class TriangleStore {
 
     }
 
-    private void update(TriangleIdentifiable triangle) {
+    public void update(TriangleObservable triangle) {
         double area = calculator.calculateArea(triangle);
         double perimeter = calculator.calculatePerimeter(triangle);
         parameters.put(triangle.getId(), new Parameters(area, perimeter));
