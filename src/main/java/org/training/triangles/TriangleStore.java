@@ -18,7 +18,9 @@ public class TriangleStore implements Observer{
     }
 
     public void update(TriangleObservable triangle) {
+        System.out.println("Triangle has been changed");
         double area = calculator.calculateArea(triangle);
+        System.out.println("New area = " + area);
         double perimeter = calculator.calculatePerimeter(triangle);
         parameters.put(triangle.getId(), new Parameters(area, perimeter));
     }
