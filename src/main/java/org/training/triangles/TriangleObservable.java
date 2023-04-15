@@ -19,9 +19,25 @@ public class TriangleObservable extends Triangle implements Observable {
         return id;
     }
 
+    public List<Observer> getObservers() {
+        return observers;
+    }
+
     @Override
     public void setFirstPoint (Point firstPoint) {
         super.setFirstPoint(firstPoint);
+        notifyObservers();
+    }
+
+    @Override
+    public void setSecondPoint (Point secondPoint) {
+        super.setFirstPoint(secondPoint);
+        notifyObservers();
+    }
+
+    @Override
+    public void setThirdPoint (Point thirdPoint) {
+        super.setFirstPoint(thirdPoint);
         notifyObservers();
     }
 
