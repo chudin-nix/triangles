@@ -1,8 +1,9 @@
-package org.training.triangles;
+package org.training.triangles.logic;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.training.triangles.logic.DataException;
+import org.training.triangles.logic.TriangleCreator;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 

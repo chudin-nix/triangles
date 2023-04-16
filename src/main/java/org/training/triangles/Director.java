@@ -2,6 +2,7 @@ package org.training.triangles;
 
 import org.training.triangles.data.DataReader;
 import org.training.triangles.logic.DataException;
+import org.training.triangles.logic.TriangleCreator;
 import org.training.triangles.logic.TriangleLineValidator;
 import org.training.triangles.model.Triangle;
 
