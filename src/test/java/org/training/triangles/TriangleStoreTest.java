@@ -10,7 +10,7 @@ import static org.junit.Assert.assertSame;
 public class TriangleStoreTest {
 
     @Test
-    public void testWhenUpdateTriangleStore() {
+    public void testUpdateShouldTriangleStore() {
         //given
         TriangleObservable triangle = new TriangleObservable(1, new Point(2.1, 3.4), new Point(2.3, 2.5), new Point(1.3, 4.2));
         TriangleStore triangleStore = TriangleStore.getInstance();
@@ -26,7 +26,7 @@ public class TriangleStoreTest {
     }
 
     @Test
-    public void testWhenGetInstanceFromTriangleStore() {
+    public void testGetInstanceWhenFromTriangleStore() {
         //given
         TriangleStore storeOne;
         TriangleStore storeTwo;

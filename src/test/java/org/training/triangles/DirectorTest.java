@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class DirectorTest {
 
@@ -25,7 +25,10 @@ public class DirectorTest {
         when(reader.read(anyString())).thenReturn(Arrays.asList("4.0 1.0 8.0 4.0 1.0 7.0", "1.1 4.2 6.8 7.9 6.2 4.5"));
         TriangleLineValidator triangleLineValidator = Mockito.mock(TriangleLineValidator.class);
         when(triangleLineValidator.isValidLine(anyString())).thenReturn(true);
-        TriangleCreator triangleCreator = new TriangleCreator();
+        // сделать мок
+        TriangleCreator triangleCreator = Mockito.mock(TriangleCreator.class);
+        Triangle triangle = Mockito.mock(Triangle.class);
+        when(triangleCreator.createTriangle(anyString())).thenReturn(triangle);
         Director director = new Director(reader, triangleLineValidator, triangleCreator);
         String path = "./src/test/resources/triangles.txt";
 
@@ -38,6 +41,8 @@ public class DirectorTest {
         List<Triangle> result = director.read(path);
 
         //then
+        verify(triangleCreator.createTriangle("4.0 1.0 8.0 4.0 1.0 7.0"), times(1));
         Assert.assertEquals(triangles, result);
+
     }
 }
