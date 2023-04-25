@@ -17,7 +17,7 @@ public class IdSpecificationTest {
         boolean result = idSpecification.specified(triangleObservable);
 
         //then
-        Assert.assertEquals(true, result);
+        Assert.assertTrue(result);
     }
 
     @Test
@@ -30,6 +30,6 @@ public class IdSpecificationTest {
         boolean result = idSpecification.specified(triangleObservable);
 
         //then
-        Assert.assertEquals(false, result);
+        Assert.assertFalse(result);
     }
 }

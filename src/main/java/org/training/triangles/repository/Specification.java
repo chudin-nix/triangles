@@ -4,5 +4,5 @@ import org.training.triangles.TriangleObservable;
 
 public interface Specification {
     
-    boolean specified(TriangleObservable triangle);
+    boolean specified(TriangleObservable triangle) ;
 }
