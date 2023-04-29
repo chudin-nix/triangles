@@ -48,6 +48,13 @@ public class TriangleRepositoryImpl implements TriangleRepository{
 
     @Override
     public List<TriangleObservable> sort(Comparator<TriangleObservable> comparator) {
-        return null;
+        List<TriangleObservable> listTriangles = new ArrayList<>();
+        int i = 0;
+        for (i = 0; i < this.store.size(); i++) {
+            listTriangles.add(this.store.get(i));
+        }
+        //Вот тут NullPointer так и не разобрался почему, что-то не так с объектом TriangleRepositoryImpl
+        Collections.sort(listTriangles, comparator);
+        return listTriangles;
     }
 }

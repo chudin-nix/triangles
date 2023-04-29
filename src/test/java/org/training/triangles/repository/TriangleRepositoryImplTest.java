@@ -5,9 +5,7 @@ import org.testng.annotations.Test;
 import org.training.triangles.TriangleObservable;
 import org.training.triangles.model.Point;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TriangleRepositoryImplTest {
     @Test
@@ -38,4 +36,26 @@ public class TriangleRepositoryImplTest {
         Assert.assertEquals(1, result.size());
         Assert.assertTrue(result.contains(triangleOne));
     }
-}
+
+    @Test
+    public void testSortShouldPassedComparatoraWhen() {
+            //given
+            TriangleRepositoryImpl repository = new TriangleRepositoryImpl();
+            TriangleObservable triangleFirst = new TriangleObservable(1, new Point(2.3, 4.2), new Point(4.1, 3.4), new Point(1.6, 6.7));
+            TriangleObservable triangleSecond = new TriangleObservable(2, new Point(2.3, 4.2), new Point(4.1, 3.4), new Point(1.6, 6.7));
+            repository.add(triangleFirst);
+            repository.add(triangleSecond);
+            //В видео было предложено замокать компоратор и воспользоваться методоми thenanswer и doAnswer. Не удалось реализовать, оставил такую логику.
+            Comparator<TriangleObservable> comparatorById = Comparator.comparing(TriangleObservable::getId);
+            List<TriangleObservable> expectedQuery = Arrays.asList(triangleFirst, triangleSecond);
+
+            //when
+            //в методе сорт происходит NullPointerException
+            List<TriangleObservable> actualQuery = repository.sort(comparatorById);
+
+            //then
+            Assert.assertEquals(expectedQuery, actualQuery);
+        }
+
+    // на методы add, delete, update решил не писать тесты, т.к. логика достаточно простая
+    }
