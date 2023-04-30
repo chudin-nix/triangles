@@ -38,14 +38,14 @@ public class TriangleRepositoryImplTest {
     }
 
     @Test
-    public void testSortShouldPassedComparatoraWhen() {
+    public void testSortShouldSortObjectsWhenPassedComparator() {
             //given
             TriangleRepositoryImpl repository = new TriangleRepositoryImpl();
             TriangleObservable triangleFirst = new TriangleObservable(1, new Point(2.3, 4.2), new Point(4.1, 3.4), new Point(1.6, 6.7));
             TriangleObservable triangleSecond = new TriangleObservable(2, new Point(2.3, 4.2), new Point(4.1, 3.4), new Point(1.6, 6.7));
             repository.add(triangleFirst);
             repository.add(triangleSecond);
-            //В видео было предложено замокать компоратор и воспользоваться методоми thenanswer и doAnswer. Не удалось реализовать, оставил такую логику.
+            //В видео было предложено замокать компоратор и воспользоваться методоми thenanswer и doAnswer. Так и не смог разобраться как реализовать, оставил такую логику.
             Comparator<TriangleObservable> comparatorById = Comparator.comparing(TriangleObservable::getId);
             List<TriangleObservable> expectedQuery = Arrays.asList(triangleFirst, triangleSecond);
 
@@ -56,6 +56,4 @@ public class TriangleRepositoryImplTest {
             //then
             Assert.assertEquals(expectedQuery, actualQuery);
         }
-
-    // на методы add, delete, update решил не писать тесты, т.к. логика достаточно простая
     }
