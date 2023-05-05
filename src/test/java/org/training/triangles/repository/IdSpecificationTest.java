@@ -11,7 +11,8 @@ public class IdSpecificationTest {
     public void testsSpecifiedShouldCompareIdWhenIdSame() {
         //given
         TriangleObservable triangleObservable = new TriangleObservable(1, new Point(2.3,3.1), new Point(3.1, 4.2), new Point(2.4, 4.1));
-        IdSpecification idSpecification = new IdSpecification(1);
+        String id = IdGenerator.generateId();
+        IdSpecification idSpecification = new IdSpecification(id);
 
         //when
         boolean result = idSpecification.specified(triangleObservable);
@@ -24,7 +25,8 @@ public class IdSpecificationTest {
     public void testsSpecifiedShouldCompareIdWhenIdDifferent() {
         //given
         TriangleObservable triangleObservable = new TriangleObservable(2, new Point(2.3,3.1), new Point(3.1, 4.2), new Point(2.4, 4.1));
-        IdSpecification idSpecification = new IdSpecification(1);
+        String id = IdGenerator.generateId();
+        IdSpecification idSpecification = new IdSpecification(id);
 
         //when
         boolean result = idSpecification.specified(triangleObservable);

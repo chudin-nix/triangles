@@ -3,9 +3,9 @@ package org.training.triangles.repository;
 import org.training.triangles.TriangleObservable;
 
 public class IdSpecification implements Specification{
-    private final Integer id;
+    private final String id;
 
-    public IdSpecification(Integer id) {
+    public IdSpecification(String id) {
         this.id = id;
     }
 
