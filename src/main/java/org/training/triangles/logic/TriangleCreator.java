@@ -1,13 +1,11 @@
-package org.training.triangles;
+package org.training.triangles.logic;
 
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-import java.util.List;
-
 public class TriangleCreator {
 
-    public Triangle createTriangle (String lineCoordinates) throws DataException{
+    public Triangle createTriangle (String lineCoordinates) throws DataException {
         String[] triangleCoordinates = lineCoordinates.split(" ");
         Point pointOne = new Point(Double.parseDouble(triangleCoordinates[0]), Double.parseDouble(triangleCoordinates[1]));
         Point pointTwo = new Point(Double.parseDouble(triangleCoordinates[0]), Double.parseDouble(triangleCoordinates[1]));

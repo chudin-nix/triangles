@@ -1,5 +1,9 @@
 package org.training.triangles;
 
+import org.apache.log4j.Logger;
+import org.training.triangles.data.DataReader;
+import org.training.triangles.logic.DataException;
+import org.training.triangles.logic.TriangleCreator;
 import org.training.triangles.logic.TriangleLineValidator;
 import org.training.triangles.model.Triangle;
 
@@ -7,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Director {
-    final private DataReader reader;
+    private static final Logger LOGGER = Logger.getLogger(Director.class);
+    private final DataReader reader;
 
-    final private TriangleLineValidator lineValidator;
+    private final TriangleLineValidator lineValidator;
 
-    final private TriangleCreator creator;
+    private final TriangleCreator creator;
 
     public Director(DataReader dataReader, TriangleLineValidator triangleLineValidator, TriangleCreator triangleCreator) {
         reader = dataReader;
@@ -31,7 +36,7 @@ public class Director {
             }
 
         } catch (DataException e) {
-            System.out.println(e.getMessage());
+            LOGGER.error(e.getMessage(), e);
         }
 
         return triangles;

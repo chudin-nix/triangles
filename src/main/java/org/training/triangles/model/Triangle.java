@@ -1,5 +1,7 @@
 package org.training.triangles.model;
 
+import java.util.Objects;
+
 public class Triangle {
     private Point firstPoint;
 
@@ -13,28 +15,46 @@ public class Triangle {
         this.thirdPoint = thirdPoint;
     }
 
-    public void setFirstPoint(Point setOnePoint) {
-        firstPoint = setOnePoint;
-    }
 
     public Point getFirstPoint() {
         return firstPoint;
     }
 
-    public void setSecondPoint(Point setSecondPoint) {
-        secondPoint = setSecondPoint;
-    }
 
     public Point getSecondPoint() {
         return secondPoint;
     }
 
-    public void setThirdPoint(Point setThirdPoint) {
-        thirdPoint = setThirdPoint;
-    }
 
     public Point getThirdPoint() {
-
         return thirdPoint;
+    }
+
+    public void setFirstPoint(Point firstPoint) {
+
+        this.firstPoint = firstPoint;
+    }
+
+    public void setSecondPoint(Point secondPoint) {
+
+        this.secondPoint = secondPoint;
+    }
+
+    public void setThirdPoint(Point thirdPoint) {
+
+        this.thirdPoint = thirdPoint;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Objects.equals(firstPoint, triangle.firstPoint) && Objects.equals(secondPoint, triangle.secondPoint) && Objects.equals(thirdPoint, triangle.thirdPoint);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstPoint, secondPoint, thirdPoint);
     }
 }

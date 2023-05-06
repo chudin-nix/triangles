@@ -5,12 +5,10 @@ import org.junit.Test;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
-import java.io.IOException;
-import java.util.List;
 
 public class TriangleCalculatorTest {
     @Test
-    public void testIsTriangle() {
+    public void testIsTriangleShouldCheckThatPointsDoNotLieOnSameLineWhenPassedTriangle() {
         //given
         Point pointOne = new Point(1.1, 4.5);
         Point pointTwo = new Point(2.7, 3.6);
@@ -25,7 +23,7 @@ public class TriangleCalculatorTest {
         Assert.assertEquals(true, result);
     }
     @Test
-    public void calculateArea() {
+    public void testCalculateAreaShouldCalculateAreaWhenPassedTriangle() {
         //given
         Point pointOne = new Point(1.1, 4.5);
         Point pointTwo = new Point(2.7, 3.6);
@@ -40,7 +38,7 @@ public class TriangleCalculatorTest {
         Assert.assertEquals(23.51, result, 0.01);
     }
     @Test
-    public void calculatePerimeter() {
+    public void testCalculatePerimeterShouldCalculatePerimeterWhenPassedTriangle() {
         //given
         Point pointOne = new Point(1.1, 4.5);
         Point pointTwo = new Point(2.7, 3.6);
@@ -55,7 +53,7 @@ public class TriangleCalculatorTest {
         Assert.assertEquals(9.72, result, 0.01);
     }
     @Test
-    public void calculateDistanceBetweenPoints() {
+    public void testCalculateDistanceBetweenPointsShouldCalculateDistanceWhenPointsPassed() {
         //given
         Point pointOne = new Point(1.1, 4.5);
         Point pointTwo = new Point(2.7, 3.6);

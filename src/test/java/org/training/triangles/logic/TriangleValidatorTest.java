@@ -1,18 +1,24 @@
 package org.training.triangles.logic;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 
 public class TriangleValidatorTest {
-    @Test
-    public void testIsRightTriangle() {
+
+    @DataProvider
+    public static Object[][] rightTriangles() {
+        return new Object[][] {
+                {new Point(0, -2.0), new Point(0, -5.0), new Point(2.0, -5.0)},
+                {new Point(1, -3.0), new Point(1, -7.0), new Point(2.0, -7.0)}
+        };
+    }
+    @Test(dataProvider = "rightTriangles")
+    public void testIsRightTriangleShouldReadLineWhenTriangleIsRight(Point pointOne, Point pointTwo, Point pointThree) {
         //given
-        Point pointOne = new Point(0, -2.0);
-        Point pointTwo = new Point(0, -5.0);
-        Point pointThree = new Point(2.0, -5.0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -22,12 +28,37 @@ public class TriangleValidatorTest {
         //then
         Assert.assertEquals(true, result);
     }
-    @Test
-    public void testIsIsoscelesTriangle() {
+
+    @DataProvider
+    public static Object[][] notRightTriangles() {
+        return new Object[][] {
+                {new Point(0, -2.0), new Point(0, -5.0), new Point(2.0, -7.0)},
+                {new Point(1, -3.0), new Point(1, -7.0), new Point(2.0, -9.0)}
+        };
+    }
+    @Test(dataProvider = "notRightTriangles")
+    public void testIsRightTriangleShouldReadLineWhenTriangleIsNotRight(Point pointOne, Point pointTwo, Point pointThree) {
         //given
-        Point pointOne = new Point(0, 3.0);
-        Point pointTwo = new Point(-1.0, 0);
-        Point pointThree = new Point(1.0, 0);
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
+        TriangleValidator triangleValidator = new TriangleValidator();
+
+        //when
+        boolean result = triangleValidator.isRightTriangle(triangle);
+
+        //then
+        Assert.assertEquals(false, result);
+    }
+
+    @DataProvider
+    public static Object[][] isoscelesTriangles() {
+        return new Object[][] {
+                {new Point(0, -2.0), new Point(0, -4.0), new Point(2.0, -4.0)},
+                {new Point(1.0, -2.0), new Point(1.0, -4.0), new Point(3.0, -4.0)}
+        };
+    }
+    @Test(dataProvider = "isoscelesTriangles")
+    public void testIsIsoscelesTriangleShouldReadLineWhenTriangleIsIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
+        //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -37,12 +68,57 @@ public class TriangleValidatorTest {
         //then
         Assert.assertEquals(true, result);
     }
-    @Test
-    public void testIsEquilateralTriangle() {
+
+    @DataProvider
+    public static Object[][] notIsoscelesTriangles() {
+        return new Object[][] {
+                {new Point(0, -2.0), new Point(0, -4.0), new Point(1.0, -4.0)},
+                {new Point(1.0, -2.0), new Point(1.0, -4.0), new Point(2.0, -4.0)}
+        };
+    }
+    @Test(dataProvider = "notIsoscelesTriangles")
+    public void testIsIsoscelesTriangleShouldReadLineWhenTriangleIsNotIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
         //given
-        Point pointOne = new Point(0, 0);
-        Point pointTwo = new Point(3.0, 5.0);
-        Point pointThree = new Point(6.0, 0);
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
+        TriangleValidator triangleValidator = new TriangleValidator();
+
+        //when
+        boolean result = triangleValidator.isIsoscelesTriangle(triangle);
+
+        //then
+        Assert.assertEquals(false, result);
+    }
+
+    @DataProvider
+    public static Object[][] equilateralTriangles() {
+        return new Object[][] {
+                {new Point(0.0, 0.0), new Point(10.0, 0.0), new Point(5.0, 8.660)},
+                {new Point(0, 0), new Point(1.5, 2.598), new Point(-1.5, 2.598)}
+        };
+    }
+    @Test(dataProvider = "equilateralTriangles")
+    public void testIsEquilateralTriangleShouldReadLineWhenTriangleIsEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
+        //given
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
+        TriangleValidator triangleValidator = new TriangleValidator();
+
+        //when
+        boolean result = triangleValidator.isEquilateralTriangle(triangle);
+
+        //then
+        Assert.assertEquals(true, result);
+    }
+
+    @DataProvider
+    public static Object[][] notEquilateralTriangles() {
+        return new Object[][] {
+                {new Point(0, 0), new Point(3.0, 0), new Point(9.0, 3.46)},
+                {new Point(0, 1.0), new Point(4.5, 2.598), new Point(-5.5, 2.598)}
+        };
+    }
+    @Test(dataProvider = "notEquilateralTriangles")
+    public void testIsEquilateralTriangleShouldReadLineWhenTriangleIsNotEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
+        //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -52,12 +128,17 @@ public class TriangleValidatorTest {
         //then
         Assert.assertEquals(false, result);
     }
-    @Test
-    public void testIsAcuteTriangle() {
+
+    @DataProvider
+    public static Object[][] acuteTriangles() {
+        return new Object[][] {
+                {new Point(0, 0), new Point(0, -3.0), new Point(2.0, -3.0)},
+                {new Point(0, 10.0), new Point(0, 0), new Point(-5.5, 2.598)}
+        };
+    }
+    @Test(dataProvider = "acuteTriangles")
+    public void testIsAcuteTriangleShouldReadLineWhenTriangleIsAcute(Point pointOne, Point pointTwo, Point pointThree) {
         //given
-        Point pointOne = new Point(0, 5.0);
-        Point pointTwo = new Point(-1.0, 0);
-        Point pointThree = new Point(1.0, 0);
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -67,12 +148,37 @@ public class TriangleValidatorTest {
         //then
         Assert.assertEquals(true, result);
     }
-    @Test
-    public void testIsObtuseTriangle() {
+
+    @DataProvider
+    public static Object[][] notAcuteTriangles() {
+        return new Object[][] {
+                {new Point(0.0, 0.0), new Point(10.0, 0.0), new Point(5.0, 8.660)},
+                {new Point(0, 0), new Point(1.5, 2.598), new Point(-1.5, 2.598)}
+        };
+    }
+    @Test(dataProvider = "notAcuteTriangles")
+    public void testIsAcuteTriangleShouldReadLineWhenTriangleIsNotAcute(Point pointOne, Point pointTwo, Point pointThree) {
         //given
-        Point pointOne = new Point(-4.0, 3.2);
-        Point pointTwo = new Point(0, -2.0);
-        Point pointThree = new Point(4.0, 0);
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
+        TriangleValidator triangleValidator = new TriangleValidator();
+
+        //when
+        boolean result = triangleValidator.isAcuteTriangle(triangle);
+
+        //then
+        Assert.assertEquals(false, result);
+    }
+
+    @DataProvider
+    public static Object[][] obtuseTriangles() {
+        return new Object[][] {
+                {new Point(0.0, 0.0), new Point(-5.0, 2.0), new Point(5.0, 2.0)},
+                {new Point(-1.0, 1.0), new Point(-6.5, 3.0), new Point(4.0, 3.0)}
+        };
+    }
+    @Test(dataProvider = "obtuseTriangles")
+    public void testIsObtuseTriangleShouldReadLineWhenTriangleIsObtuse(Point pointOne, Point pointTwo, Point pointThree) {
+        //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
 
@@ -81,5 +187,25 @@ public class TriangleValidatorTest {
 
         //then
         Assert.assertEquals(true, result);
+    }
+
+    @DataProvider
+    public static Object[][] notObtuseTriangles() {
+        return new Object[][] {
+                {new Point(0.0, 0.0), new Point(10.0, 0.0), new Point(5.0, 8.660)},
+                {new Point(0, 0), new Point(1.5, 2.598), new Point(-1.5, 2.598)}
+        };
+    }
+    @Test(dataProvider = "notObtuseTriangles")
+    public void testIsObtuseTriangleShouldReadLineWhenTriangleIsNotObtuse(Point pointOne, Point pointTwo, Point pointThree) {
+        //given
+        Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
+        TriangleValidator triangleValidator = new TriangleValidator();
+
+        //when
+        boolean result = triangleValidator.isObtuseTriangle(triangle);
+
+        //then
+        Assert.assertEquals(false, result);
     }
 }
