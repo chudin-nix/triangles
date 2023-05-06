@@ -1,5 +1,6 @@
 package org.training.triangles;
 
+import org.apache.log4j.Logger;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TriangleObservable extends Triangle implements Observable {
+    public static final Logger LOGGER = Logger.getLogger(TriangleObservable.class);
     private final String id;
     private final List<Observer> observers = new ArrayList<>();
 
@@ -16,10 +18,12 @@ public class TriangleObservable extends Triangle implements Observable {
     }
 
     public String getId() {
+
         return id;
     }
 
     public List<Observer> getObservers() {
+
         return observers;
     }
 
@@ -43,17 +47,20 @@ public class TriangleObservable extends Triangle implements Observable {
 
     @Override
     public void attach(Observer observer) {
+
         observers.add(observer);
     }
 
     @Override
     public void detach(Observer observer) {
+
         observers.remove(observer);
     }
 
 
     @Override
     public void notifyObservers() {
+        LOGGER.info("Call notify Observers");
         for (Observer observer: observers) {
             observer.update(this);
         }
