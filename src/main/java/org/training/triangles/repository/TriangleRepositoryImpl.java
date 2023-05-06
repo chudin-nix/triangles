@@ -6,32 +6,32 @@ import java.util.*;
 
 public class TriangleRepositoryImpl implements TriangleRepository{
 
-    private Map<Integer, TriangleObservable> store = new HashMap<>();
+    private Map<String, TriangleObservable> store = new HashMap<>();
 
 
     public TriangleRepositoryImpl () {
 
     }
     // for unit testing
-    TriangleRepositoryImpl(Map<Integer, TriangleObservable> store) {
+    TriangleRepositoryImpl(Map<String, TriangleObservable> store) {
         this.store = store;
     }
 
     @Override
     public void add(TriangleObservable triangle) {
-        Integer triangleId = triangle.getId();
+        String triangleId = triangle.getId();
         store.put(triangleId, triangle);
     }
 
     @Override
     public void delete(TriangleObservable triangle) {
-        Integer triangleId = triangle.getId();
+        String triangleId = triangle.getId();
         store.remove(triangleId, triangle);
     }
 
     @Override
     public void update(TriangleObservable triangle) {
-        Integer triangleId = triangle.getId();
+        String triangleId = triangle.getId();
         store.put(triangleId, triangle);
     }
 
@@ -49,7 +49,7 @@ public class TriangleRepositoryImpl implements TriangleRepository{
     @Override
     public List<TriangleObservable> sort(Comparator<TriangleObservable> comparator) {
         List<TriangleObservable> listTriangles = new ArrayList<>();
-        for (Map.Entry<Integer, TriangleObservable> pair: store.entrySet()) {
+        for (Map.Entry<String, TriangleObservable> pair: store.entrySet()) {
             TriangleObservable value = pair.getValue();
             listTriangles.add(value);
         }

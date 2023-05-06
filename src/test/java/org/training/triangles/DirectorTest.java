@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 public class DirectorTest {
 
     @Test
-    public void testShouldReadLineWhenLinesAreValid() throws DataException {
+    public void testReadShouldReadLineWhenLinesAreValid() throws DataException {
         //given
         String path = "./src/test/resources/triangles.txt";
         Triangle triangleOne = new Triangle(new Point(4.0, 1.0), new Point(8.0, 4.0), new Point(1.0, 7.0));

@@ -31,14 +31,17 @@ public class Triangle {
     }
 
     public void setFirstPoint(Point firstPoint) {
+
         this.firstPoint = firstPoint;
     }
 
     public void setSecondPoint(Point secondPoint) {
+
         this.secondPoint = secondPoint;
     }
 
     public void setThirdPoint(Point thirdPoint) {
+
         this.thirdPoint = thirdPoint;
     }
 

@@ -17,7 +17,7 @@ public class DataReaderTest {
         strings.add("4.0 1.0 8.0 4.0 1.0 7.0");
 
         //when
-        List<String> result = dataReader.read("./src/test/resources/triangles.txt");
+        List<String> result = dataReader.read("./src/test/resources/triangleWithOneLine.txt");
 
         //then
         Assert.assertEquals(strings, result);

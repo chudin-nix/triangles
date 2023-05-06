@@ -10,8 +10,8 @@ public class TriangleCalculator {
         Point firstPoint = triangle.getFirstPoint();
         Point secondPoint = triangle.getSecondPoint();
         Point thirdPoint = triangle.getThirdPoint();
-        boolean isTriange = ((thirdPoint.getX() - firstPoint.getX()) * (secondPoint.getY() - firstPoint.getY()) == (thirdPoint.getY() - firstPoint.getY()) * (secondPoint.getX() - firstPoint.getX()));
-        return isTriange;
+        boolean isTriange = (thirdPoint.getX() - firstPoint.getX()) / (secondPoint.getX() - firstPoint.getX()) == (thirdPoint.getY() - firstPoint.getY()) / (secondPoint.getY() - firstPoint.getY());
+        return !isTriange;
     }
 
     // Следует ли, делать название testCalculateSurfaceAreaShouldCalculateWhenTriangleValid, как было в видео на разборе дз?

@@ -12,7 +12,7 @@ public class TriangleStoreTest {
     @Test
     public void testUpdateShouldTriangleStore() {
         //given
-        TriangleObservable triangle = new TriangleObservable(1, new Point(2.1, 3.4), new Point(2.3, 2.5), new Point(1.3, 4.2));
+        TriangleObservable triangle = new TriangleObservable("0f645cc7-9380-4639-8c63-c8888652654b", new Point(2.1, 3.4), new Point(2.3, 2.5), new Point(1.3, 4.2));
         TriangleStore triangleStore = TriangleStore.getInstance();
         triangleStore.update(triangle);
         TriangleCalculator triangleCalculator = new TriangleCalculator();

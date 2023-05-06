@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class TriangleLineValidatorTest {
     @Test
-    public void testShouldReadLineWhenLineIsValid() {
+    public void testIsValidLineShouldReadLineWhenLineIsValid() {
         //given
         TriangleLineValidator triangleLineValidator = new TriangleLineValidator();
 

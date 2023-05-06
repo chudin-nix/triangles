@@ -1,9 +1,13 @@
 package org.training.triangles.repository;
 
 
+import java.util.UUID;
+
 public class IdGenerator {
-    public static String generateId() {
-        String id = IdGenerator.generateId();
-        return id;
+    String id;
+
+    public String generateId() {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 }

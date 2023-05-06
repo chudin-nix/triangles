@@ -1,6 +1,5 @@
 package org.training.triangles.logic;
 
-import org.training.triangles.logic.DataException;
 import org.training.triangles.model.Point;
 import org.training.triangles.model.Triangle;
 

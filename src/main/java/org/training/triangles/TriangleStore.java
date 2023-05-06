@@ -9,7 +9,7 @@ public class TriangleStore implements Observer{
 
     private static TriangleStore instance;
 
-    private final Map<Integer, Parameters> parameters = new HashMap<>();
+    private final Map<String, Parameters> parameters = new HashMap<>();
 
     private final TriangleCalculator calculator = new TriangleCalculator();
 

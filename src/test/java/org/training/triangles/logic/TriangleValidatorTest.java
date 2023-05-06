@@ -17,7 +17,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "rightTriangles")
-    public void testShouldReadLineWhenTriangleIsRight(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsRightTriangleShouldReadLineWhenTriangleIsRight(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -37,7 +37,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "notRightTriangles")
-    public void testShouldReadLineWhenTriangleIsNotRight(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsRightTriangleShouldReadLineWhenTriangleIsNotRight(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -57,7 +57,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "isoscelesTriangles")
-    public void testShouldReadLineWhenTriangleIsIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsIsoscelesTriangleShouldReadLineWhenTriangleIsIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -77,7 +77,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "notIsoscelesTriangles")
-    public void testShouldReadLineWhenTriangleIsNotIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsIsoscelesTriangleShouldReadLineWhenTriangleIsNotIsosceles(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -97,7 +97,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "equilateralTriangles")
-    public void testShouldReadLineWhenTriangleIsEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsEquilateralTriangleShouldReadLineWhenTriangleIsEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -117,7 +117,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "notEquilateralTriangles")
-    public void testShouldReadLineWhenTriangleIsNotEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsEquilateralTriangleShouldReadLineWhenTriangleIsNotEquilateral(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -137,7 +137,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "acuteTriangles")
-    public void testShouldReadLineWhenTriangleIsAcute(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsAcuteTriangleShouldReadLineWhenTriangleIsAcute(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -157,7 +157,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "notAcuteTriangles")
-    public void testShouldReadLineWhenTriangleIsNotAcute(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsAcuteTriangleShouldReadLineWhenTriangleIsNotAcute(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -177,7 +177,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "obtuseTriangles")
-    public void testShouldReadLineWhenTriangleIsObtuse(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsObtuseTriangleShouldReadLineWhenTriangleIsObtuse(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
@@ -197,7 +197,7 @@ public class TriangleValidatorTest {
         };
     }
     @Test(dataProvider = "notObtuseTriangles")
-    public void testShouldReadLineWhenTriangleIsNotObtuse(Point pointOne, Point pointTwo, Point pointThree) {
+    public void testIsObtuseTriangleShouldReadLineWhenTriangleIsNotObtuse(Point pointOne, Point pointTwo, Point pointThree) {
         //given
         Triangle triangle = new Triangle(pointOne, pointTwo, pointThree);
         TriangleValidator triangleValidator = new TriangleValidator();
